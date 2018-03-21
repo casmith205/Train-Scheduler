@@ -54,9 +54,18 @@ database.ref().on("child_added", function(snapshot, prevChildKey){
     var trainFirstTime = snapshot.val().firstTime;
     var trainFreq = snapshot.val().frequency;
 
-    // Need to get this to be a non-static number
-    var nextArrival = "5:30 PM";
-    var minAway = moment().diff(moment(trainFirstTime), "minutes");
+    // We need this to equal the present time
+    var presentTime=moment();
+ 
+    var arrivalTime = trainFirstTime
+
+    if (arrivalTime < presentTime){
+      arrivalTime += freq
+    } else {
+      var nextArrival = arrivalTime
+    }
+   
+    var minAway = moment().diff(moment(nextArrival), "minutes");
 
     $("#trainTable").append("<tr><td>"+trainName+"</td><td>"+trainDest+"</td><td>"
     +trainFreq+"</td><td>"+nextArrival+"</td><td>"+minAway+"</td>");
