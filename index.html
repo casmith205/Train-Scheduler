@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Train Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Moment.js Reference -->
     <script src="http://momentjs.com/downloads/moment.js"></script>  
@@ -18,8 +18,8 @@
             <div class="col-md-12">
                 <div class="jumbotron jumbotron-fluid" id="jjjumbotron">
                     <div class="container">
-                        <h1 class="display-4">Employee Data Managment</h1>
-                        <p>A Comprehensive Directory of Employee Billable Hours</p>
+                        <h1 class="display-4">Train Scheduler</h1>
+                        <p>A Comprehensive Directory of Train Schedules</p>
                     </div>
                 </div>
             
@@ -37,15 +37,14 @@
                     </div>
                  
                     <div class="card-body" id="tableDiv">
-                            <table class="table" id="importantTable">
+                            <table class="table" id="trainTable">
                                     <thead>
                                       <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Role</th>
-                                        <th scope="col">Start Date</th>
-                                        <th scope="col">Months Worked</th>
-                                        <th scope="col">Monthly Rate</th>
-                                        <th scope="col">Total Billed</th>
+                                        <th scope="col">Train Name</th>
+                                        <th scope="col">Destination</th>
+                                        <th scope="col">Frequency (min)</th>
+                                        <th scope="col">Next Arrival</th>
+                                        <th scope="col">Minutes Away</th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -70,23 +69,23 @@
                     <form>
                         <br>
                         <div class="form-group">
-                          <label for="exampleFormControlInput1">Employee Name</label>
-                          <input type="text" class="form-control" id="employeeNameInput">
+                          <label for="exampleFormControlInput1">Train Name</label>
+                          <input type="text" class="form-control" id="trainInput">
                         </div>
                         <div class="form-group">
-                          <label for="exampleFormControlSelect1">Role</label>
-                          <input type="text" class="form-control" id="roleInput">
+                          <label for="exampleFormControlSelect1">Destination</label>
+                          <input type="text" class="form-control" id="destInput">
                         </div>
                         <div class="form-group">
-                          <label for="exampleFormControlSelect2">Start Date</label>
-                          <input type="text" class="form-control" id="startDateInput">
+                          <label for="exampleFormControlSelect2">First Train Time (HH:mm Military time)</label>
+                          <input type="text" class="form-control" id="firstTimeInput">
                         </div>
                         <div class="form-group">
-                          <label for="exampleFormControlTextarea1">Monthly Rate</label>
-                          <input type="text" class="form-control" id="monthlyRateInput">
+                          <label for="exampleFormControlTextarea1">Frequency</label>
+                          <input type="text" class="form-control" id="freqInput">
                         </div>
                         <div class="form-group">
-                        <button type="submit" class="btn btn-primary" id="addEmployee">Submit</button>
+                        <button type="submit" class="btn btn-primary" id="addTrain">Submit</button>
                         </div>
                       </form>
                     <div class="card-body">
@@ -103,7 +102,7 @@
    <!-- Firebase Reference -->
    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
-   <script src="time.js"></script>
+   <script src="assets/javascript/app.js"></script>
 <!-- BOOTSTRAP LINKS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
