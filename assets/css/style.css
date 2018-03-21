@@ -4,30 +4,34 @@ body {
     line-height: 34px;
     color: #777;
     padding: 20px;
+    background: url("../images/tex2res5.png");
 }
+
 #mainContainer {
     width: 100%;
     max-width: 960px;
     margin: 0 auto;
     clear: both;
 }
-#jjjumbotron {
-    background: black;
-    text-align: center;
+.jumbotron {
+    background: url("../images/mtn.jpg") no-repeat bottom;
     color: white;
+    font-weight: bolder;
 }
+
 #scheduleDiv {
     text-align: center;
     width: 100%;
     float: center;
+    color: black;   
 }
 #card1Header {
-    background: rgb(0, 0, 0); 
+    background: dimgray; 
     color: white;
     text-align: left;
 }
 #card2Header {
-    background: rgb(0, 0, 0); 
+    background:dimgrey; 
     color: white;
     text-align: left;
 }
@@ -37,4 +41,8 @@ body {
 .form-group {
     padding-left: 20px;
     padding-right: 20px;
+}
+
+p{
+    font-weight: bold;
 }
