@@ -46,27 +46,30 @@ $("#addTrain").on("click", function(event) {
 // Calculate 
 
 database.ref().on("child_added", function(snapshot, prevChildKey){
-    console.log(snapshot.val());
-    console.log(snapshot.val().name);
     // Store everything into a variable.
     var trainName = snapshot.val().name;
     var trainDest = snapshot.val().dest;
     var trainFirstTime = snapshot.val().firstTime;
     var trainFreq = snapshot.val().frequency;
 
-    // We need this to equal the present time
-    var presentTime=moment();
- 
-    var arrivalTime = trainFirstTime
+    // First Time (pushed back 1 year to make sure it comes before current time)
+    var firstTimeConverted = moment(trainFirstTime, "HH:mm").subtract(1, "years");
 
-    if (arrivalTime < presentTime){
-      arrivalTime += freq
-    } else {
-      var nextArrival = arrivalTime
-    }
-   
-    var minAway = moment().diff(moment(nextArrival), "minutes");
+    // Difference between the current time, moment(), and the firstTimeConversted in minutes.
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+
+    // Time apart (remainder)
+    // Takes the difference in current and start time, divides it by the frequency & sets remainder to a variable
+    var tRemainder = diffTime % trainFreq;
+
+    // Minute Until Train
+    // Takes the frequency and subtracts the remainder to give the minutes away
+    var minAway = trainFreq - tRemainder;
+
+    // Next Train -- adds the minAway to the current time
+    var nextArrival = moment().add(minAway, "minutes").format("hh:mm");
+
 
     $("#trainTable").append("<tr><td>"+trainName+"</td><td>"+trainDest+"</td><td>"
     +trainFreq+"</td><td>"+nextArrival+"</td><td>"+minAway+"</td>");
-})
+});
