@@ -16,7 +16,6 @@ body {
 .jumbotron {
     background: url("../images/mtn.jpg") no-repeat bottom;
     color: white;
-    font-weight: bolder;
 }
 
 #scheduleDiv {
