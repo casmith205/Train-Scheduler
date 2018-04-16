@@ -7,7 +7,7 @@ Add a train and see how long until the train arrives!
 Project to demonstrate basic Firebase integration.
 
 ## Technologies Used 
-HTML, CSS, Bootstrap, JavaScript, JQuery, Firebase
+HTML, CSS, Bootstrap, JavaScript, jQuery, Firebase
 
 ## License 
 MIT License
